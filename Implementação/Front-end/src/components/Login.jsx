@@ -1,30 +1,62 @@
 import React from 'react';
-import './Login.css'; // Importando o CSS do componente
+import './Login.css'; // Certifique-se de ter esse arquivo CSS disponível
+import { useNavigate } from 'react-router-dom';
+
+
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate('./components/Login2.jsx');
+  };
+  
   return (
-    <div className="login-page">
-      <div className="left-panel">
-        <h1>Bem vindo de volta</h1>
-        <p>Acesse sua conta agora mesmo</p>
-        <button className="login-button">Entrar</button>
+    <div className="container" id="container">
+      <div className="form-container sign-up">
+        <form>
+          <h1>Create Account</h1>
+          <div className="social-icons">
+            <a href="#" className="icon"><i className="fa-brands fa-google-plus-g"></i></a>
+            <a href="#" className="icon"><i className="fa-brands fa-facebook-f"></i></a>
+            <a href="#" className="icon"><i className="fa-brands fa-github"></i></a>
+            <a href="#" className="icon"><i className="fa-brands fa-linkedin-in"></i></a>
+          </div>
+          <span>or use your email for registration</span>
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <button type="submit">Sign Up</button>
+        </form>
       </div>
-      <div className="right-panel">
-        <div className="login-card">
-          <h2>Login</h2>
-          <div className="input-group">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" placeholder="Digite seu email" />
+      <div className="form-container sign-in">
+        <form>
+          <h1>Criar sua conta</h1>
+          <span>Preencha seus dados abaixo</span>
+          <div className="social-icons">
+          
+            
           </div>
-          <div className="input-group">
-            <label htmlFor="username">Usuário</label>
-            <input type="text" id="username" placeholder="Digite seu usuário" />
+            
+          <input type="name" placeholder="Nome" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Senha" />
+          <a href="#"></a>
+          <button type="submit">Cadastrar</button>
+        </form>
+      </div>
+      <div className="toggle-container">
+        <div className="toggle">
+          <div className="toggle-panel toggle-left">
+            <h1>Welcome Back!</h1>
+            <p>Enter your personal details to use all of site features</p>
+            <button className="hidden" id="login">Sign In</button>
           </div>
-          <div className="input-group">
-            <label htmlFor="password">Senha</label>
-            <input type="password" id="password" placeholder="Digite sua senha" />
+          <div className="toggle-panel toggle-right">
+            <h1>Bem vindo de volta</h1>
+            <p>Acesse sua conta agora mesmo!</p>
+            <button className="hidden" id="register" onClick={handleLoginClick}>Entrar</button>
           </div>
-          <button className="register-button">Cadastrar</button>
         </div>
       </div>
     </div>
