@@ -1,22 +1,13 @@
-
-import './App.css'
-
+// src/App.jsx
+import React from 'react';
+import Login from './components/Login'; // Importando o componente de Login
 
 function App() {
-const list =  [{matricula: "123456", nome: "Augusto dos Anjos"},
-               {matricula: "25363", nome: "André Rodrigues"},
-               {matricula: "123456", nome: "Carla Araújo"}
-              ];
-
   return (
-    <>
-      <div>
-        
-        <Button list={list}/>
-      
-      </div>
-    </>
-  )
+    <div>
+      <Login /> {/* Renderizando o componente de Login */}
+    </div>
+  );
 }
 
-export default App
+export default App;

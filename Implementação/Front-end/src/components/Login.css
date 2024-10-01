@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex; /* Flex para dividir a tela */
+}
+
+.login-page {
+  display: flex; /* Flex para as duas partes */
+  width: 100%; /* Ocupa 100% da largura da tela */
+}
+
+.left-panel {
+  background-color: #a1c2f2; /* Azul claro */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%; /* Ocupa 50% da tela */
+  height: 100vh; /* Ocupa 100% da altura */
+}
+
+.left-panel h1 {
+  margin: 0;
+}
+
+.left-panel p {
+  margin: 0.5rem 0 1.5rem 0;
+  text-align: center;
+}
+
+.right-panel {
+  width: 50%; /* Ocupa 50% da tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 300px; /* Largura fixa para o card */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.input-group input:focus {
+  border-color: #a1c2f2; /* Azul claro ao focar */
+  outline: none;
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #7da0e1; /* Azul mais escuro */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #6691d2; /* Tom mais escuro ao passar o mouse */
+}
+
+.register-button {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #a1c2f2; /* Azul claro */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.register-button:hover {
+  background-color: #7da0e1; /* Tom mais escuro ao passar o mouse */
+}
