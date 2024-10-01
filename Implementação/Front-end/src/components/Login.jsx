@@ -7,10 +7,11 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const navigate = useNavigate();
 
-  const handleLoginClick = () => {
-    navigate('./components/Login2.jsx');
+  const handleLoginClick = (e) => {
+    e.preventDefault();
+    navigate('./components/Login2');
   };
-  
+
   return (
     <div className="container" id="container">
       <div className="form-container sign-up">
