@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #c9d6ff;
+  background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.cadastro-container {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  width: 500px; /* Aumenta a largura do contêiner */
+  padding: 40px; /* Espaçamento interno */
+  transition: all 0.3s ease; /* Suaviza a animação ao interagir */
+}
+
+.cadastro-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 28px; /* Tamanho do título */
+  color: #333;
+  text-align: center; /* Centraliza o texto */
+}
+
+span {
+  font-size: 12px; /* Diminui o tamanho da fonte do span */
+  margin-bottom: 20px; /* Espaçamento abaixo do span */
+  color: #555; /* Cor do texto */
+}
+
+.cadastro-input-group {
+  margin-bottom: 20px; /* Aumenta o espaçamento entre os campos */
+  width: 100%; /* Ocupa toda a largura do contêiner */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px; /* Diminui o tamanho da fonte do label */
+  color: #555;
+  width: 100%; /* Aumenta o comprimento do label */
+}
+
+input {
+  width: 100%;
+  padding: 12px; /* Aumenta o espaçamento interno */
+  border: 1px solid #ccc;
+  border-radius: 10px; /* Bordas mais arredondadas */
+  font-size: 16px; /* Tamanho da fonte dos inputs */
+  transition: border-color 0.3s; /* Suaviza a animação ao focar no input */
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff; /* Cor do contorno ao focar */
+}
+
+button {
+  width: 100%;
+  padding: 12px; /* Aumenta o espaçamento interno do botão */
+  background-color: #6f2c91; /* Cor roxa do botão */
+  border: none;
+  border-radius: 10px; /* Bordas mais arredondadas */
+  color: #ffffff;
+  font-size: 16px; /* Tamanho da fonte do botão */
+  cursor: pointer;
+  margin-top: 20px; /* Espaço acima do botão */
+  transition: background-color 0.3s; /* Suaviza a animação ao passar o mouse */
+}
+
+button:hover {
+  background-color: #5e2371; /* Cor do botão ao passar o mouse */
+}
