@@ -1,6 +1,8 @@
 import React from 'react';
 import './Login.css'; // Certifique-se de ter o CSS adequado
 import { useNavigate } from 'react-router-dom';
+import logo from './sinais-de-codigo.png'
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -51,9 +53,12 @@ const Login = () => {
             <button className="hidden" id="login">Sign In</button>
           </div>
           <div className="toggle-panel toggle-right">
-            <h1>Bem vindo!</h1>
-            <p>Não tem uma conta?Crie uma agora mesmo</p>
-            <button className="hidden" id="register" onClick={entrar}>Cadastre-se</button>
+            
+            <p><h1 className='bemvindo'>Bem vindo ao SIGEPS</h1></p>
+            <img src={logo}  className='logo' alt="" />
+             
+
+           {/* <button className="hidden" id="register" onClick={entrar}>Cadastre-se</button> */}
           </div>
         </div>
       </div>
