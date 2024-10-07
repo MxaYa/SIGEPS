@@ -21,7 +21,7 @@ const CadastroCliente = () => {
         
     };
     try{
-      const response = await fetch('http://localhost:5000/cadastrar_cliente', {
+      const response = await fetch('http://localhost:5000/accounts/signup/cliente', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',

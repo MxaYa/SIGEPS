@@ -21,7 +21,7 @@ const CadastroAdministrador = () => {
         
     };
     try{
-      const response = await fetch('http://localhost:5000/cadastrar_adm', {
+      const response = await fetch('http://localhost:5000/accounts/signup/adm', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',

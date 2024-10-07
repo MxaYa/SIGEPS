@@ -21,7 +21,7 @@ const CadastroEspecialista = () => {
         
     };
     try{
-      const response = await fetch('http://localhost:5000/cadastrar_especialista', {
+      const response = await fetch('http://localhost:5000/accounts/signup/especialista', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
