@@ -3,6 +3,7 @@ const express = require('express');
 const sequelize = require('./config/database.js'); // Importa a conexão
 const app = express();
 const PORT = process.env.PORT || 5000;
+const cors = require('cors');
 const administradorRoutes = require('./routes/Controlls/AdministradorController');
 const clienteRoutes = require('./routes/Controlls/ClienteController');
 const especialistaRoutes = require('./routes/Controlls/EspecialistaController');
@@ -16,13 +17,17 @@ app.use(express.json());
 }); */
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
+console.log('Rotas registradas:');
 app.use('/accounts/signup/adm', administradorRoutes);
+console.log('/accounts/signup/adm');
 app.use('/accounts/signup/cliente', clienteRoutes);
+console.log('/accounts/signup/cliente');
 app.use('/accounts/signup/especialista', especialistaRoutes);
+console.log('/accounts/signup/especialista');
 app.use('/accounts/signup/triagem', triagemRoutes);
-
+console.log('/accounts/signup/triagem');
 
 
 app.get('/test-connection', async (req, res) => {

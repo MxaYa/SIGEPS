@@ -2,34 +2,34 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Cronograma = sequelize.define('Cronograma', {
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
+     //columns lista todas as tabelas do banco. column ï¿½ a coleï¿½ao de objeto que representa a coluna do banco.
     id_cronograma: { //Nome da coluna
         type: DataTypes.INTEGER, //tipo de dados da coluna
-        allowNull: False, //Define se a coluna é null, retorna true ou false
+        allowNull: False, //Define se a coluna ï¿½ null, retorna true ou false
         primaryKey: true, //Adiciona pk se a coluna tiver chave primaria
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
+     //columns lista todas as tabelas do banco. column ï¿½ a coleï¿½ao de objeto que representa a coluna do banco.
     nome_atividade: { //Nome da coluna
         type: DataTypes.VARCHAR(100), //tipo de dados da coluna
-        allowNull: False, //Define se a coluna é null, retorna true ou false
+        allowNull: False, //Define se a coluna ï¿½ null, retorna true ou false
          //Adiciona pk se a coluna tiver chave primaria
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
+     //columns lista todas as tabelas do banco. column ï¿½ a coleï¿½ao de objeto que representa a coluna do banco.
     nome_material_suporte: { //Nome da coluna
         type: DataTypes.VARCHAR(100), //tipo de dados da coluna
-        allowNull: True, //Define se a coluna é null, retorna true ou false
+        allowNull: True, //Define se a coluna ï¿½ null, retorna true ou false
          //Adiciona pk se a coluna tiver chave primaria
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
+     //columns lista todas as tabelas do banco. column ï¿½ a coleï¿½ao de objeto que representa a coluna do banco.
     data_inicio: { //Nome da coluna
         type: DataTypes.DATE, //tipo de dados da coluna
-        allowNull: False, //Define se a coluna é null, retorna true ou false
+        allowNull: False, //Define se a coluna ï¿½ null, retorna true ou false
          //Adiciona pk se a coluna tiver chave primaria
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
+     //columns lista todas as tabelas do banco. column ï¿½ a coleï¿½ao de objeto que representa a coluna do banco.
     data_terminio: { //Nome da coluna
         type: DataTypes.DATE, //tipo de dados da coluna
-        allowNull: False, //Define se a coluna é null, retorna true ou false
+        allowNull: False, //Define se a coluna ï¿½ null, retorna true ou false
          //Adiciona pk se a coluna tiver chave primaria
     },
     
