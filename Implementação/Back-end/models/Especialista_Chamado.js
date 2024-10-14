@@ -2,17 +2,17 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Especialista_chamado = sequelize.define('Especialista_chamado', {
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    codigoEspecialista: { //Nome da coluna
-        type: DataTypes.INTEGER, //tipo de dados da coluna
-        allowNull: False, //Define se a coluna é null, retorna true ou false
-        primaryKey: true, //Adiciona pk se a coluna tiver chave primaria
+    
+    codigoEspecialista: {
+        type: DataTypes.INTEGER,
+        allowNull: false, // Converte o valor booleano para string minúscula
+        primaryKey: true,
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    numeroChamado: { //Nome da coluna
-        type: DataTypes.INTEGER, //tipo de dados da coluna
-        allowNull: False, //Define se a coluna é null, retorna true ou false
-        primaryKey: true, //Adiciona pk se a coluna tiver chave primaria
+    
+    numeroChamado: {
+        type: DataTypes.INTEGER,
+        allowNull: false, // Converte o valor booleano para string minúscula
+        primaryKey: true,
     },
     
 },{

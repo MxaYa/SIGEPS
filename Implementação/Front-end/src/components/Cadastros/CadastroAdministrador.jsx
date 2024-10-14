@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Axios from 'axios';
 import "./Styles/Cadastro.css";
 
 const CadastroAdministrador = () => {
@@ -14,30 +15,18 @@ const CadastroAdministrador = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = {
-        nomeAdm: formData.nomeAdm,
-        emailAdm: formData.emailAdm,
-        telefoneAdm: formData.telefoneAdm,
-        
-    };
-    try{
-      const response = await fetch('http://localhost:5000/accounts/signup/adm', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-          const data = await response.json();
-          alert('Cadastro realizado com sucesso!');
-      } else {
-          alert('Erro ao realizar o cadastro');
-      }
+    try {
+      const response = await Axios.post('http://localhost:5000/Handlesadm/criaAdm', formData);
+      console.log('Resposta do servidor: ', response.data);
+      alert('Cadastro realizado com sucesso!');
     } catch (error) {
-        console.error('Erro no envio: ', error);
+      if (error.response) {
+        console.error('Erro no envio:', error.response.data);
+        alert('Erro ao realizar o cadastro: ' + error.response.data.error);
+      } else {
+        console.error('Erro no envio:', error);
         alert('Ocorreu um erro ao enviar os dados do cadastro.');
+      }
     }
   };
 

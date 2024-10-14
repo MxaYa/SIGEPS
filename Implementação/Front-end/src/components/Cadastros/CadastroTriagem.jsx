@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Axios from 'axios';
 import "./Styles/Cadastro.css";
 
 const CadastroTriagem = () => {
@@ -14,30 +15,19 @@ const CadastroTriagem = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = {
-        nomeTriagem: formData.nomeTriagem,
-        emailTriagem: formData.emailTriagem,
-        telefoneTriagem: formData.telefoneTriagem,
-        
-    };
     try{
-      const response = await fetch('http://localhost:5000/accounts/signup/triagem', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-          const data = await response.json();
-          alert('Cadastro realizado com sucesso!');
-      } else {
-          alert('Erro ao realizar o cadastro');
-      }
+      const response = await Axios.post('http://localhost:5000/Handlestriagem/criaTriagem', formData);
+      console.log('Resposta do servidor:', response.data); // Logar a resposta do servidor
+      alert('Cadastro realizado com sucesso!');
     } catch (error) {
-        console.error('Erro no envio: ', error);
+      // Verificar se a resposta tem um erro
+      if (error.response) {
+        console.error('Erro no envio:', error.response.data);
+        alert('Erro ao realizar o cadastro: ' + error.response.data.error);
+      } else {
+        console.error('Erro no envio:', error);
         alert('Ocorreu um erro ao enviar os dados do cadastro.');
+      }
     }
   };
 

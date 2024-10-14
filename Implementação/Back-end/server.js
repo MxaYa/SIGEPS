@@ -20,14 +20,10 @@ app.use(cors());
 app.use(express.json());
 
 console.log('Rotas registradas:');
-app.use('/accounts/signup/adm', administradorRoutes);
-console.log('/accounts/signup/adm');
-app.use('/accounts/signup/cliente', clienteRoutes);
-console.log('/accounts/signup/cliente');
-app.use('/accounts/signup/especialista', especialistaRoutes);
-console.log('/accounts/signup/especialista');
-app.use('/accounts/signup/triagem', triagemRoutes);
-console.log('/accounts/signup/triagem');
+app.use('/Handlesadm', administradorRoutes);
+app.use('/Handlescliente', clienteRoutes);
+app.use('/Handlesespecialista', especialistaRoutes);
+app.use('/Handlestriagem', triagemRoutes);
 
 
 app.get('/test-connection', async (req, res) => {

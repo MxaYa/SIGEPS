@@ -2,59 +2,60 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Atividade = sequelize.define('Atividade', {
-     //columns lista todas as tabelas do banco. column � a cole�ao de objeto que representa a coluna do banco.
-    id_atividade: { //Nome da coluna
-        type: DataTypes.INTEGER, //tipo de dados da coluna
-        allowNull: False, //Define se a coluna � null, retorna true ou false
-        primaryKey: true, //Adiciona pk se a coluna tiver chave primaria
+    
+    id_atividade: {
+        type: DataTypes.INTEGER,
+        allowNull: false, // Converte o valor booleano para string min�scula
+        autoIncrement: true,
+        primaryKey: true,
     },
-     //columns lista todas as tabelas do banco. column � a cole�ao de objeto que representa a coluna do banco.
-    nome: { //Nome da coluna
-        type: DataTypes.VARCHAR(100), //tipo de dados da coluna
-        allowNull: False, //Define se a coluna � null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    nome: {
+        type: DataTypes.STRING(100),
+        allowNull: false, // Converte o valor booleano para string min�scula
+        
     },
-     //columns lista todas as tabelas do banco. column � a cole�ao de objeto que representa a coluna do banco.
-    descricao: { //Nome da coluna
-        type: DataTypes.TEXT, //tipo de dados da coluna
-        allowNull: True, //Define se a coluna � null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    descricao: {
+        type: DataTypes.TEXT,
+        allowNull: true, // Converte o valor booleano para string min�scula
+        
     },
-     //columns lista todas as tabelas do banco. column � a cole�ao de objeto que representa a coluna do banco.
-    prioridade: { //Nome da coluna
-        type: DataTypes.VARCHAR(20), //tipo de dados da coluna
-        allowNull: True, //Define se a coluna � null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    prioridade: {
+        type: DataTypes.STRING(20),
+        allowNull: true, // Converte o valor booleano para string min�scula
+        
     },
-     //columns lista todas as tabelas do banco. column � a cole�ao de objeto que representa a coluna do banco.
-    data_inicio: { //Nome da coluna
-        type: DataTypes.DATE, //tipo de dados da coluna
-        allowNull: False, //Define se a coluna � null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    data_inicio: {
+        type: DataTypes.DATE,
+        allowNull: false, // Converte o valor booleano para string min�scula
+        
     },
-     //columns lista todas as tabelas do banco. column � a cole�ao de objeto que representa a coluna do banco.
-    data_fim: { //Nome da coluna
-        type: DataTypes.DATE, //tipo de dados da coluna
-        allowNull: False, //Define se a coluna � null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    data_fim: {
+        type: DataTypes.DATE,
+        allowNull: false, // Converte o valor booleano para string min�scula
+        
     },
-     //columns lista todas as tabelas do banco. column � a cole�ao de objeto que representa a coluna do banco.
-    status: { //Nome da coluna
-        type: DataTypes.VARCHAR(20), //tipo de dados da coluna
-        allowNull: True, //Define se a coluna � null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    status: {
+        type: DataTypes.STRING(20),
+        allowNull: true, // Converte o valor booleano para string min�scula
+        
     },
-     //columns lista todas as tabelas do banco. column � a cole�ao de objeto que representa a coluna do banco.
-    responsavel: { //Nome da coluna
-        type: DataTypes.VARCHAR(100), //tipo de dados da coluna
-        allowNull: True, //Define se a coluna � null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    responsavel: {
+        type: DataTypes.STRING(100),
+        allowNull: true, // Converte o valor booleano para string min�scula
+        
     },
-     //columns lista todas as tabelas do banco. column � a cole�ao de objeto que representa a coluna do banco.
-    id_cronograma: { //Nome da coluna
-        type: DataTypes.INTEGER, //tipo de dados da coluna
-        allowNull: True, //Define se a coluna � null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    id_cronograma: {
+        type: DataTypes.INTEGER,
+        allowNull: true, // Converte o valor booleano para string min�scula
+        
     },
     
 },{

@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const clienteController = require("../RoutesCadastros/routerCadCliente");
+const clienteController = require('../RoutesCadastros/routerCadCliente'); // Ajuste o caminho conforme sua estrutura
 
-router.post('/', clienteController.criaCliente);
+router.post('/criaCliente', clienteController.criaCliente);
 router.get('/buscaCliente', clienteController.buscaCliente);
 router.get('/buscaClienteID/:id', clienteController.buscaClienteID);
 router.put('/atualizaClienteID/:id', clienteController.atualizaClienteID);

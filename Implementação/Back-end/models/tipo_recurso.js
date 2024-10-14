@@ -2,77 +2,78 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Tipo_recurso = sequelize.define('Tipo_recurso', {
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    id_tipo_recurso: { //Nome da coluna
-        type: DataTypes.INTEGER, //tipo de dados da coluna
-        allowNull: False, //Define se a coluna é null, retorna true ou false
-        primaryKey: true, //Adiciona pk se a coluna tiver chave primaria
+    
+    id_tipo_recurso: {
+        type: DataTypes.INTEGER,
+        allowNull: false, // Converte o valor booleano para string minï¿½scula
+        autoIncrement: true,
+        primaryKey: true,
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    nome: { //Nome da coluna
-        type: DataTypes.VARCHAR(100), //tipo de dados da coluna
-        allowNull: False, //Define se a coluna é null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    nome: {
+        type: DataTypes.STRING(100),
+        allowNull: false, // Converte o valor booleano para string minï¿½scula
+        
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    tipo: { //Nome da coluna
-        type: DataTypes.VARCHAR(50), //tipo de dados da coluna
-        allowNull: False, //Define se a coluna é null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    tipo: {
+        type: DataTypes.STRING(50),
+        allowNull: false, // Converte o valor booleano para string minï¿½scula
+        
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    local: { //Nome da coluna
-        type: DataTypes.VARCHAR(100), //tipo de dados da coluna
-        allowNull: True, //Define se a coluna é null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    local: {
+        type: DataTypes.STRING(100),
+        allowNull: true, // Converte o valor booleano para string minï¿½scula
+        
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    requisitos_privacidade: { //Nome da coluna
-        type: DataTypes.TEXT, //tipo de dados da coluna
-        allowNull: True, //Define se a coluna é null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    requisitos_privacidade: {
+        type: DataTypes.TEXT,
+        allowNull: true, // Converte o valor booleano para string minï¿½scula
+        
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    requisitos_energia: { //Nome da coluna
-        type: DataTypes.TEXT, //tipo de dados da coluna
-        allowNull: True, //Define se a coluna é null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    requisitos_energia: {
+        type: DataTypes.TEXT,
+        allowNull: true, // Converte o valor booleano para string minï¿½scula
+        
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    modelo: { //Nome da coluna
-        type: DataTypes.VARCHAR(100), //tipo de dados da coluna
-        allowNull: True, //Define se a coluna é null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    modelo: {
+        type: DataTypes.STRING(100),
+        allowNull: true, // Converte o valor booleano para string minï¿½scula
+        
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    versao: { //Nome da coluna
-        type: DataTypes.VARCHAR(50), //tipo de dados da coluna
-        allowNull: True, //Define se a coluna é null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    versao: {
+        type: DataTypes.STRING(50),
+        allowNull: true, // Converte o valor booleano para string minï¿½scula
+        
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    configuracoes: { //Nome da coluna
-        type: DataTypes.TEXT, //tipo de dados da coluna
-        allowNull: True, //Define se a coluna é null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    configuracoes: {
+        type: DataTypes.TEXT,
+        allowNull: true, // Converte o valor booleano para string minï¿½scula
+        
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    fabricante: { //Nome da coluna
-        type: DataTypes.VARCHAR(100), //tipo de dados da coluna
-        allowNull: True, //Define se a coluna é null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    fabricante: {
+        type: DataTypes.STRING(100),
+        allowNull: true, // Converte o valor booleano para string minï¿½scula
+        
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    suporte_fabricante: { //Nome da coluna
-        type: DataTypes.TEXT, //tipo de dados da coluna
-        allowNull: True, //Define se a coluna é null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    suporte_fabricante: {
+        type: DataTypes.TEXT,
+        allowNull: true, // Converte o valor booleano para string minï¿½scula
+        
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    licenca: { //Nome da coluna
-        type: DataTypes.VARCHAR(100), //tipo de dados da coluna
-        allowNull: True, //Define se a coluna é null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    licenca: {
+        type: DataTypes.STRING(100),
+        allowNull: true, // Converte o valor booleano para string minï¿½scula
+        
     },
     
 },{

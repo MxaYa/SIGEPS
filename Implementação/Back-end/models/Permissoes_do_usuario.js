@@ -2,41 +2,42 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Permissoes_do_usuario = sequelize.define('Permissoes_do_usuario', {
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    id_permissoes: { //Nome da coluna
-        type: DataTypes.INTEGER, //tipo de dados da coluna
-        allowNull: False, //Define se a coluna é null, retorna true ou false
-        primaryKey: true, //Adiciona pk se a coluna tiver chave primaria
+    
+    id_permissoes: {
+        type: DataTypes.INTEGER,
+        allowNull: false, // Converte o valor booleano para string minï¿½scula
+        autoIncrement: true,
+        primaryKey: true,
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    id_usuario: { //Nome da coluna
-        type: DataTypes.INTEGER, //tipo de dados da coluna
-        allowNull: False, //Define se a coluna é null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    id_usuario: {
+        type: DataTypes.INTEGER,
+        allowNull: false, // Converte o valor booleano para string minï¿½scula
+        
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    role: { //Nome da coluna
-        type: DataTypes.ENUM, //tipo de dados da coluna
-        allowNull: False, //Define se a coluna é null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    role: {
+        type: DataTypes.ENUM,
+        allowNull: false, // Converte o valor booleano para string minï¿½scula
+        
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    permissions: { //Nome da coluna
-        type: DataTypes.LONGTEXT, //tipo de dados da coluna
-        allowNull: True, //Define se a coluna é null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    permissions: {
+        type: DataTypes.LONGTEXT,
+        allowNull: true, // Converte o valor booleano para string minï¿½scula
+        
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    created_at: { //Nome da coluna
-        type: DataTypes.TIMESTAMP, //tipo de dados da coluna
-        allowNull: True, //Define se a coluna é null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    created_at: {
+        type: DataTypes.TIMESTAMP,
+        allowNull: true, // Converte o valor booleano para string minï¿½scula
+        
     },
-     //columns lista todas as tabelas do banco. column é a coleçao de objeto que representa a coluna do banco.
-    updated_at: { //Nome da coluna
-        type: DataTypes.TIMESTAMP, //tipo de dados da coluna
-        allowNull: True, //Define se a coluna é null, retorna true ou false
-         //Adiciona pk se a coluna tiver chave primaria
+    
+    updated_at: {
+        type: DataTypes.TIMESTAMP,
+        allowNull: true, // Converte o valor booleano para string minï¿½scula
+        
     },
     
 },{

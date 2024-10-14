@@ -17,7 +17,7 @@ const CadastroCliente = () => {
     e.preventDefault();
 
     try {
-      const response = await Axios.post('http://localhost:5000/accounts/signup/cliente', formData);
+      const response = await Axios.post('http://localhost:5000/Handlescliente/criCliente', formData);
       console.log('Resposta do servidor:', response.data); // Logar a resposta do servidor
       alert('Cadastro realizado com sucesso!');
     } catch (error) {

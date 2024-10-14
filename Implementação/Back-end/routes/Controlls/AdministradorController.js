@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const AdministradorController = require("../RoutesCadastros/routerCadAdministrador");
 
-router.post('/adm', AdministradorController.criaAdm);
-router.get('/adm', AdministradorController.buscaAdm);
-router.get('/adm/:id', AdministradorController.buscaAdmID);
-router.put('/adm/:id', AdministradorController.atualizaAdmID);
-router.delete('/adm/:id', AdministradorController.deletaAdm);
+router.post('/criaAdm', AdministradorController.criaAdm);
+router.get('/buscaAdm', AdministradorController.buscaAdm);
+router.get('/buscaAdmID/:id', AdministradorController.buscaAdmID);
+router.put('/atualizaAdmID/:id', AdministradorController.atualizaAdmID);
+router.delete('/deletaAdm/:id', AdministradorController.deletaAdm);
 
 module.exports = router;
