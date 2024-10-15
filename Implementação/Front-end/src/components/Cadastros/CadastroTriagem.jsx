@@ -15,12 +15,11 @@ const CadastroTriagem = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
+    try {
       const response = await Axios.post('http://localhost:5000/Handlestriagem/criaTriagem', formData);
-      console.log('Resposta do servidor:', response.data); // Logar a resposta do servidor
+      console.log('Resposta do servidor:', response.data);
       alert('Cadastro realizado com sucesso!');
     } catch (error) {
-      // Verificar se a resposta tem um erro
       if (error.response) {
         console.error('Erro no envio:', error.response.data);
         alert('Erro ao realizar o cadastro: ' + error.response.data.error);

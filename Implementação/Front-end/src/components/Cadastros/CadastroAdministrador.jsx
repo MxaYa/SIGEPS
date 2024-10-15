@@ -17,7 +17,7 @@ const CadastroAdministrador = () => {
     e.preventDefault();
     try {
       const response = await Axios.post('http://localhost:5000/Handlesadm/criaAdm', formData);
-      console.log('Resposta do servidor: ', response.data);
+      console.log('Resposta do servidor:', response.data);
       alert('Cadastro realizado com sucesso!');
     } catch (error) {
       if (error.response) {

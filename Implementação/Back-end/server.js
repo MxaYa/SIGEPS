@@ -1,6 +1,6 @@
-// server.js
+
 const express = require('express');
-const sequelize = require('./config/database.js'); // Importa a conexão
+const sequelize = require('./config/database.js');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const cors = require('cors');

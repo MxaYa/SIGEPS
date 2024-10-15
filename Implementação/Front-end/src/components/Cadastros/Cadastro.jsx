@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
-import "./Styles/Cadastro.css"
+import "./Styles/Cadastro.css";
+import { useAuth0 } from '@auth0/auth0-react';
+import { useNavigate } from 'react-router-dom';
 import CadastroCliente from './CadastroCliente';
 import CadastroEspecialista from './CadastroEspecialista';
 import CadastroTriagem from './CadastroTriagem';
 import CadastroAdministrador from './CadastroAdministrador';
 
 const Cadastro = () => {
+  const { isAuthenticated } = useAuth0();
+  const navigate = useNavigate();
+  if (!isAuthenticated) {
+    navigate('/');
+    return null;
+  }
+
   const [tipoCadastro, setTipoCadastro] = useState('');
 
   const handleSelectChange = (e) => {

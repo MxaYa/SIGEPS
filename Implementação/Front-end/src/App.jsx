@@ -1,17 +1,34 @@
-// src/App.jsx
 import React from 'react';
+import { Auth0Provider } from '@auth0/auth0-react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './components/Login'; // Importando o componente de Login
-import Cadastro from './components/Cadastros/Cadastro'; // Importando a nova página de Login2
+import Login from './components/Login';
+import Cadastro from './components/Cadastros/Cadastro';
+import ProtectedRoute from './components/ProtectedRoute';
+console.log('Domain:', import.meta.env.VITE_AUTH0_DOMAIN);
+console.log('Client ID:', import.meta.env.VITE_AUTH0_CLIENT_ID);
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login />} /> {/* Renderizando o componente de Login na rota raiz */}
-      <Route path="/Cadastro" element={<Cadastro />} /> {/* Renderizando o componente Login2 na rota /login2 */}
-      </Routes>
-    </Router>
+    <Auth0Provider
+      domain={import.meta.env.VITE_AUTH0_DOMAIN}
+      clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
+      redirectUri={window.location.origin}
+    >
+
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route
+            path="/cadastro"
+            element={
+              <ProtectedRoute>
+                <Cadastro />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </Router>
+    </Auth0Provider>
   );
 }
 
