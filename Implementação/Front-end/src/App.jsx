@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Cadastro from './components/Cadastros/Cadastro';
 import ProtectedRoute from './components/ProtectedRoute';
+import Dashboard from './components/pages/dashboardAdm';
 console.log('Domain:', import.meta.env.VITE_AUTH0_DOMAIN);
 console.log('Client ID:', import.meta.env.VITE_AUTH0_CLIENT_ID);
 
@@ -23,6 +24,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Cadastro />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/dashboardAdm'
+            element={
+              <ProtectedRoute>
+                <Dashboard />
               </ProtectedRoute>
             }
           />
