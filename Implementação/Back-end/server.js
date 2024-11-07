@@ -8,7 +8,7 @@ const administradorRoutes = require('./routes/Controlls/AdministradorController'
 const clienteRoutes = require('./routes/Controlls/ClienteController');
 const especialistaRoutes = require('./routes/Controlls/EspecialistaController');
 const triagemRoutes = require('./routes/Controlls/TriagemController');
-
+const authRoutes = require('./routes/RoutesCadastros/auth.js')
 
 app.use(express.json());
 
@@ -20,6 +20,7 @@ app.use(cors());
 app.use(express.json());
 
 console.log('Rotas registradas:');
+app.use('/api/auth', authRoutes);
 app.use('/Handlesadm', administradorRoutes);
 app.use('/Handlescliente', clienteRoutes);
 app.use('/Handlesespecialista', especialistaRoutes);

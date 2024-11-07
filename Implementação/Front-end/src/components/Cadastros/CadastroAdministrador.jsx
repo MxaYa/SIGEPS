@@ -69,6 +69,17 @@ const CadastroAdministrador = () => {
               required
             />
           </div>
+          <div className="cadastro-input-group">
+            <label htmlFor="senhaAdm">Telefone</label>
+            <input
+              type="tel"
+              name="telefoneAdm"
+              value={formData.telefoneAdm}
+              onChange={handleChange}
+              placeholder="Telefone"
+              required
+            />
+          </div>
           <button type="submit">Cadastrar</button>
         </form>
       </div>
