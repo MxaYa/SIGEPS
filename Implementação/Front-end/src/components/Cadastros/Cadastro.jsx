@@ -1,30 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import "./Styles/Cadastro.css";
-import { useAuth0 } from '@auth0/auth0-react';
-import { useNavigate } from 'react-router-dom';
 import CadastroCliente from './CadastroCliente';
 import CadastroEspecialista from './CadastroEspecialista';
 import CadastroTriagem from './CadastroTriagem';
 import CadastroAdministrador from './CadastroAdministrador';
 
 const Cadastro = () => {
-  const { isAuthenticated, user, logout } = useAuth0();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (isAuthenticated && user) {
-      localStorage.setItem('loggedUser', JSON.stringify(user));
-    } else {
-      localStorage.removeItem('loggedUser');
-    }
-  }, [isAuthenticated, user]);
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate('/');
-    }
-  }, [isAuthenticated, navigate]);
-
   const [tipoCadastro, setTipoCadastro] = useState('');
 
   const handleSelectChange = (e) => {
@@ -62,9 +43,6 @@ const Cadastro = () => {
           </select>
         </div>
         {renderForm()}
-        {isAuthenticated && (
-          <button onClick={() => logout()}>Logout</button>
-        )}
       </div>
     </div>
   );
