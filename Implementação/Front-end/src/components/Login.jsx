@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import logo from './sinais-de-codigo.png';
@@ -6,9 +6,34 @@ import logo from './sinais-de-codigo.png';
 const Login = () => {
   const navigate = useNavigate();
 
+  // Corrigir a criação dos estados
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [userRole, setUserRole] = useState('');
+
   const handleLogin = (e) => {
     e.preventDefault();
-    navigate('./Cadastro'); // Redireciona diretamente para o dashboard
+
+    // Simulação de validação do login
+    if (email === 'admin@example.com' && password === 'admin') {
+      setUserRole('admin');
+    } else if (email === 'cliente@example.com' && password === 'cliente') {
+      setUserRole('cliente');
+    } else if (email === 'triagem@example.com' && password === 'triagem') {
+      setUserRole('triagem');
+    } else {
+      alert('Credenciais inválidas');
+      return;
+    }
+
+    // Redireciona para o painel adequado baseado na role
+    if (userRole === 'admin') {
+      navigate('/dashboardAdm');
+    } else if (userRole === 'cliente') {
+      navigate('/dashboardCliente');
+    } else if (userRole === 'triagem') {
+      navigate('/dashboardTriagem');
+    }
   };
 
   return (
@@ -17,8 +42,20 @@ const Login = () => {
         <form onSubmit={handleLogin}>
           <h1>Entrar</h1>
           <span>Preencha os campos abaixo</span>
-          <input type="email" placeholder="Email" required />
-          <input type="password" placeholder="Senha" required />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
           <a href="#">Esqueceu sua senha?</a>
           <button type="submit">Login</button>
         </form>

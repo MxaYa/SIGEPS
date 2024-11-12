@@ -1,22 +1,12 @@
 import React from 'react';
 import './Styles/StyleDashBoard.css';
-import { useAuth0 } from '@auth0/auth0-react';
-import { Navigate } from 'react-router-dom';
 
 const Dashboard = () => {
-  const { user, logout, isAuthenticated, isLoading } = useAuth0();
 
   const handleLogout = () => {
-    logout({ returnTo: window.location.origin });
+    // Implemente aqui a função para logout, se necessário
+    window.location.href = "/"; // Apenas redireciona para a página inicial
   };
-
-  const isAdmin = user && user['https://seuapp.com/roles']?.includes('admin');
-
-  if (isLoading) return <div>Carregando...</div>;
-
-  if (!isAuthenticated || !isAdmin) {
-    return <Navigate to="/" />;
-  }
 
   return (
     <div className="dashboard-container">
