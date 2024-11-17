@@ -4,8 +4,7 @@ import './Styles/StyleDashBoard.css';
 const Dashboard = () => {
 
   const handleLogout = () => {
-    // Implemente aqui a função para logout, se necessário
-    window.location.href = "/"; // Apenas redireciona para a página inicial
+    window.location.href = "/";
   };
 
   return (

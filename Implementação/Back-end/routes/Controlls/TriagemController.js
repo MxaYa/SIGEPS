@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const TriagemController = require("../RoutesCadastros/routerCadTriagem");
+const TriagemController = require("../Routes/routerCadTriagem");
 
 router.post('/criaTriagem', TriagemController.criaTriagem);
 router.get('/buscaTriagem', TriagemController.buscaTriagem);

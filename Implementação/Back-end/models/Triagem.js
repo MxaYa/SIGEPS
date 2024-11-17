@@ -27,6 +27,10 @@ const Triagem = sequelize.define('Triagem', {
         allowNull: true, // Converte o valor booleano para string min�scula
         
     },
+    senhaTriagem: {
+        type: DataTypes.STRING(45),
+        allowNull: false,
+    },
     
 },{
     tableName: 'Triagem', 

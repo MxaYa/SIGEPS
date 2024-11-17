@@ -2,40 +2,51 @@ import React, { useState } from 'react';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import logo from './sinais-de-codigo.png';
+import axios from 'axios';
 
 const Login = () => {
   const navigate = useNavigate();
 
-  // Corrigir a criação dos estados
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [senha, setSenha] = useState('');
   const [userRole, setUserRole] = useState('');
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-
-    // Simulação de validação do login
-    if (email === 'admin@example.com' && password === 'admin') {
-      setUserRole('admin');
-    } else if (email === 'cliente@example.com' && password === 'cliente') {
-      setUserRole('cliente');
-    } else if (email === 'triagem@example.com' && password === 'triagem') {
-      setUserRole('triagem');
-    } else {
-      alert('Credenciais inválidas');
-      return;
-    }
-
-    // Redireciona para o painel adequado baseado na role
-    if (userRole === 'admin') {
-      navigate('/dashboardAdm');
-    } else if (userRole === 'cliente') {
-      navigate('/dashboardCliente');
-    } else if (userRole === 'triagem') {
-      navigate('/dashboardTriagem');
+  
+    try {
+      const response = await axios.post('http://localhost:5000/api/auth/login', {
+        email,
+        senha,
+      });
+  
+      const { role, codigoCliente } = response.data;
+  
+      localStorage.setItem('role', role);
+      localStorage.setItem('codigoCliente', codigoCliente);
+  
+      if (role === 'administrador') {
+        navigate('/dashboardAdm');
+      } else if (role === 'clientes') {
+        navigate('/dashboardCliente');
+      } else if (role === 'especialistas') {
+        navigate('/dashboardEspecialista');
+      } else if (role === 'triagem') {
+        navigate('/dashboardTriagem');
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        alert('Credenciais inválidas');
+      } else {
+        console.error('Erro no login:', error);
+        alert('Erro no servidor');
+      }
     }
   };
-
+  
+  
+  
+  
   return (
     <div className="container" id="container">
       <div className="form-container sign-in">
@@ -52,10 +63,20 @@ const Login = () => {
           <input
             type="password"
             placeholder="Senha"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
             required
           />
+          
+          {/* {}
+          <select value={userRole} onChange={(e) => setUserRole(e.target.value)} required>
+            <option value="">Selecione o tipo de usuário</option>
+            <option value="admin">Administrador</option>
+            <option value="cliente">Cliente</option>
+            <option value="especialista">Especialista</option>
+            <option value="triagem">Triagem</option>
+          </select> */}
+          
           <a href="#">Esqueceu sua senha?</a>
           <button type="submit">Login</button>
         </form>

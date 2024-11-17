@@ -6,6 +6,10 @@ import ProtectedRoute from './components/ProtectedRoute';
 import DashboardAdm from './components/pages/dashboardAdm';
 import DashboardCliente from './components/pages/dashboardCliente';
 import DashboardTriagem from './components/pages/dashboardTriagem';
+import AberturaChamados from './components/pages/chamado';
+import ChamadoClienteSide from './components/pages/ChamadosViewerClienteSide';
+import ChamadosTriagemSide from './components/pages/BuscarChamadosTriagemSide';
+import ChamadosAberto from './components/pages/ChamadosAberto';
 
 function App() {
   return (
@@ -44,6 +48,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/chamado" element={<AberturaChamados />} />
+        <Route
+          path="/chamados-cliente-side"
+          element={<ChamadoClienteSide />}
+        />
+        <Route
+          path="/buscar-chamados-Triagem"
+          element={<ChamadosTriagemSide />}
+        />
+        <Route path="/chamados-abertos" element={<ChamadosAberto />} />
       </Routes>
     </Router>
   );

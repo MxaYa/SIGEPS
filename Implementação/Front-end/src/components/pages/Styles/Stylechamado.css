@@ -1,0 +1,83 @@
+.abertura-chamados-container {
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    width: 768px;
+    max-width: 100%;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.abertura-chamados-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.abertura-chamados-header h2 {
+    font-size: 24px;
+    color: #512da8;
+}
+
+.submit-button {
+    background-color: #512da8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.field-group > div {
+    margin-bottom: 20px;
+}
+
+.field-group label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.field-group input,
+.field-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.field-group input:focus,
+.field-group select:focus {
+    border-color: #512da8;
+}
+
+.field-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    resize: none; 
+    height: 150px; 
+    transition: border-color 0.3s;
+}
+
+.field-group textarea:focus {
+    border-color: #512da8;
+}

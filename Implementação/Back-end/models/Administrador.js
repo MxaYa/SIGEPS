@@ -5,27 +5,31 @@ const Administrador = sequelize.define('Administrador', {
     
     codigoAdm: {
         type: DataTypes.INTEGER,
-        allowNull: false, // Converte o valor booleano para string min�scula
+        allowNull: false, 
         autoIncrement: true,
         primaryKey: true,
     },
     
     nomeAdm: {
         type: DataTypes.STRING(100),
-        allowNull: false, // Converte o valor booleano para string min�scula
+        allowNull: false, 
         
     },
     
     emailAdm: {
         type: DataTypes.STRING(100),
-        allowNull: true, // Converte o valor booleano para string min�scula
+        allowNull: true, 
         
     },
     
     telefoneAdm: {
         type: DataTypes.STRING(20),
-        allowNull: true, // Converte o valor booleano para string min�scula
+        allowNull: true, 
         
+    },
+    senhaAdm: {
+        type: DataTypes.STRING(100),
+        allowNull: false,
     },
     
 },{

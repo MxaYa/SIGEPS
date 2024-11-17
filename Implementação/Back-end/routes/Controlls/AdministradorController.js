@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const AdministradorController = require("../RoutesCadastros/routerCadAdministrador");
+const AdministradorController = require("../Routes/routerCadAdministrador");
 
 router.post('/criaAdm', AdministradorController.criaAdm);
 router.get('/buscaAdm', AdministradorController.buscaAdm);

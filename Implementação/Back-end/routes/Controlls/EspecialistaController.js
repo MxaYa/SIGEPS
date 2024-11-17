@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const EspecialistaController = require("../RoutesCadastros/routerCadEspecialista");
+const EspecialistaController = require("../Routes/routerCadEspecialista");
 
 router.post('/criaEspecialista', EspecialistaController.criaEspecialista);
 router.get('/buscaEspecialista', EspecialistaController.buscaEspecialista);

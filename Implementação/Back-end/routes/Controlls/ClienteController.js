@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const clienteController = require('../RoutesCadastros/routerCadCliente');
+const clienteController = require('../Routes/routerCadCliente');
 
 router.post('/criaCliente', clienteController.criaCliente);
 router.get('/buscaCliente', clienteController.buscaCliente);

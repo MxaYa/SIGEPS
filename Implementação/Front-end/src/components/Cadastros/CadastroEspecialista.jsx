@@ -7,6 +7,7 @@ const CadastroEspecialista = () => {
     nomeEspecialista: '',
     emailEspecialista: '',
     telefoneEspecialista: '',
+    senhaEspecialista: '',
   });
 
   const handleChange = (e) => {
@@ -66,6 +67,17 @@ const CadastroEspecialista = () => {
               value={formData.telefoneEspecialista}
               onChange={handleChange}
               placeholder="Telefone"
+              required
+            />
+          </div>
+          <div className="cadastro-input-group">
+            <label htmlFor="senhaEspecialista">Senha</label>
+            <input
+              type="password"
+              name="senhaEspecialista"
+              value={formData.senhaEspecialista}
+              onChange={handleChange}
+              placeholder="Password"
               required
             />
           </div>

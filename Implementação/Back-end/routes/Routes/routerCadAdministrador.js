@@ -2,6 +2,7 @@ const Administrador = require('../../models/Administrador');
 
 exports.criaAdm = async  (req, res) => {
   try {
+    console.log('Dados recebidos no backend:', req.body);
     const administrador = await Administrador.create(req.body);
     res.status(201).json(administrador);
   } catch (error) {

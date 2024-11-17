@@ -33,6 +33,10 @@ const Clientes = sequelize.define('Clientes', {
         allowNull: true, // Converte o valor booleano para string min�scula
         
     },
+    senhaCliente: {
+        type: DataTypes.STRING(45),
+        allowNull: false,
+    }
     
 },{
     tableName: 'Clientes', 

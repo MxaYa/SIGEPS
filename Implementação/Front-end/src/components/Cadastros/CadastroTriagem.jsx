@@ -7,6 +7,7 @@ const CadastroTriagem = () => {
     nomeTriagem: '',
     emailTriagem: '',
     telefoneTriagem: '',
+    senhaTriagem: '',
   });
 
   const handleChange = (e) => {
@@ -66,6 +67,17 @@ const CadastroTriagem = () => {
               value={formData.telefoneTriagem}
               onChange={handleChange}
               placeholder="Telefone"
+              required
+            />
+          </div>
+          <div className="cadastro-input-group">
+            <label htmlFor="senhaTriagem">Senha</label>
+            <input
+              type="password"
+              name="senhaTriagem"
+              value={formData.senhaTriagem}
+              onChange={handleChange}
+              placeholder="Password"
               required
             />
           </div>

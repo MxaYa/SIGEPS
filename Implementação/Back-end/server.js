@@ -4,11 +4,13 @@ const sequelize = require('./config/database.js');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const cors = require('cors');
-const administradorRoutes = require('./routes/Controlls/AdministradorController');
+const administradorRoutes = require('./routes/Controlls/AdministradorController.js');
 const clienteRoutes = require('./routes/Controlls/ClienteController');
 const especialistaRoutes = require('./routes/Controlls/EspecialistaController');
 const triagemRoutes = require('./routes/Controlls/TriagemController');
-const authRoutes = require('./routes/RoutesCadastros/auth.js')
+const authRoutes = require('./routes/Routes/auth.js')
+const ChamadosRoutes = require('./routes/Controlls/ChamadosController.js');
+const buscaChamados = require('./routes/Controlls/buscaChamadosAbertos.js')
 
 app.use(express.json());
 
@@ -25,6 +27,8 @@ app.use('/Handlesadm', administradorRoutes);
 app.use('/Handlescliente', clienteRoutes);
 app.use('/Handlesespecialista', especialistaRoutes);
 app.use('/Handlestriagem', triagemRoutes);
+app.use('/api', ChamadosRoutes);
+app.use('/Busca', buscaChamados);
 
 
 app.get('/test-connection', async (req, res) => {

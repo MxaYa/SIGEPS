@@ -27,6 +27,10 @@ const Especialistas = sequelize.define('Especialistas', {
         allowNull: true, // Converte o valor booleano para string min�scula
         
     },
+    senhaEspecialista: {
+        type: DataTypes.STRING(45),
+        allowNull: false,
+    },
     
 },{
     tableName: 'Especialistas', 

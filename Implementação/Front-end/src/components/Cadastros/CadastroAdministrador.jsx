@@ -7,6 +7,7 @@ const CadastroAdministrador = () => {
     nomeAdm: '',
     emailAdm: '',
     telefoneAdm: '',
+    senhaAdm: '',
   });
 
   const handleChange = (e) => {
@@ -15,6 +16,8 @@ const CadastroAdministrador = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    console.log(formData);
     try {
       const response = await Axios.post('http://localhost:5000/Handlesadm/criaAdm', formData);
       console.log('Resposta do servidor:', response.data);
@@ -70,13 +73,13 @@ const CadastroAdministrador = () => {
             />
           </div>
           <div className="cadastro-input-group">
-            <label htmlFor="senhaAdm">Telefone</label>
+            <label htmlFor="senhaAdm">Senha</label>
             <input
-              type="tel"
-              name="telefoneAdm"
-              value={formData.telefoneAdm}
+              type="password"
+              name="senhaAdm"
+              value={formData.senhaAdm}
               onChange={handleChange}
-              placeholder="Telefone"
+              placeholder="Password"
               required
             />
           </div>
