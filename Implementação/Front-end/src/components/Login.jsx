@@ -9,7 +9,6 @@ const Login = () => {
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [userRole, setUserRole] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -20,10 +19,10 @@ const Login = () => {
         senha,
       });
   
-      const { role, codigoCliente } = response.data;
+      const { role, codigo } = response.data;
   
       localStorage.setItem('role', role);
-      localStorage.setItem('codigoCliente', codigoCliente);
+      localStorage.setItem('codigo', codigo);
   
       if (role === 'administrador') {
         navigate('/dashboardAdm');
@@ -43,9 +42,6 @@ const Login = () => {
       }
     }
   };
-  
-  
-  
   
   return (
     <div className="container" id="container">
@@ -67,16 +63,6 @@ const Login = () => {
             onChange={(e) => setSenha(e.target.value)}
             required
           />
-          
-          {/* {}
-          <select value={userRole} onChange={(e) => setUserRole(e.target.value)} required>
-            <option value="">Selecione o tipo de usuário</option>
-            <option value="admin">Administrador</option>
-            <option value="cliente">Cliente</option>
-            <option value="especialista">Especialista</option>
-            <option value="triagem">Triagem</option>
-          </select> */}
-          
           <a href="#">Esqueceu sua senha?</a>
           <button type="submit">Login</button>
         </form>
@@ -88,8 +74,8 @@ const Login = () => {
             <p>Entre com seus dados pessoais para usar todos os recursos do site</p>
           </div>
           <div className="toggle-panel toggle-right">
-            <h1 className='bemvindo'>Bem-vindo ao SIGEPS</h1>
-            <img src={logo} className='logo' alt="Logo" />
+            <h1 className="bemvindo">Bem-vindo ao SIGEPS</h1>
+            <img src={logo} className="logo" alt="Logo" />
           </div>
         </div>
       </div>

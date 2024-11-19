@@ -16,7 +16,7 @@ const DashboardCliente = () => {
     <div className="dashboard-container">
       <h1>Painel do Cliente</h1>
       <button onClick={handleAbrirChamado}>Abrir Chamado</button>
-      <button onClick={handleVerMeusChamados}>Ver Meus Chamados</button>  {/* Adicionando o evento de navegação */}
+      <button onClick={handleVerMeusChamados}>Ver Meus Chamados</button> 
     </div>
   );
 };

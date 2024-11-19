@@ -17,19 +17,23 @@ const login = async (req, res) => {
 
     if (user) {
       const role = user.constructor.name.toLowerCase();
-      
-      let codigoCliente = null;
+
+      let codigo = null;
       if (role === 'clientes') {
-        codigoCliente = user.codigoCliente;
+        codigo = user.codigoCliente;
+      } else if (role === 'especialistas') {
+        codigo = user.codigoEspecialista;
+      } else if (role === 'triagem') {
+        codigo = user.codigoTriagem;
       }
 
       return res.status(200).json({ 
         message: "Login bem-sucedido", 
         role, 
-        codigoCliente,
+        codigo,
       });
     }
-    
+
     return res.status(400).json({ message: "Credenciais inválidas" });
   } catch (err) {
     console.error(err);
@@ -38,3 +42,4 @@ const login = async (req, res) => {
 };
 
 module.exports = { login };
+

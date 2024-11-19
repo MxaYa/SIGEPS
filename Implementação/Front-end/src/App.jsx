@@ -10,6 +10,8 @@ import AberturaChamados from './components/pages/chamado';
 import ChamadoClienteSide from './components/pages/ChamadosViewerClienteSide';
 import ChamadosTriagemSide from './components/pages/BuscarChamadosTriagemSide';
 import ChamadosAberto from './components/pages/ChamadosAberto';
+import DashboardEspecialista from './components/pages/dashboardEspecialista';
+import BuscarChamadosEspecialista from './components/pages/BuscarChamadosEspecialista';
 
 function App() {
   return (
@@ -58,6 +60,8 @@ function App() {
           element={<ChamadosTriagemSide />}
         />
         <Route path="/chamados-abertos" element={<ChamadosAberto />} />
+        <Route path="/dashboardEspecialista" element={<DashboardEspecialista />} />
+        <Route path='/BuscarChamadosEspecialista' element={<BuscarChamadosEspecialista />} />
       </Routes>
     </Router>
   );

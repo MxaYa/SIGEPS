@@ -30,7 +30,7 @@ const Especialista_chamado = sequelize.define('Especialista_chamado', {
     timestamps: false
 });
 
-Especialista_chamado.hasMany(Chamados, { foreignKey: 'numeroChamado'});
-Especialista_chamado.hasMany(Especialistas, {foreignKey: 'codigoEspecialista'});
+Especialista_chamado.belongsTo(Chamados, { foreignKey: 'numeroChamado'});
+Especialista_chamado.belongsTo(Especialistas, {foreignKey: 'codigoEspecialista'});
 
 module.exports = Especialista_chamado;

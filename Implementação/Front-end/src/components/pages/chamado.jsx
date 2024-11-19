@@ -18,7 +18,7 @@ const AberturaChamados = () => {
   const [loadingTiposManutencao, setLoadingTiposManutencao] = useState(true);
   const [error, setError] = useState('');
 
-  const navigate = useNavigate(); // Hook de navegação
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     axios.get('http://localhost:5000/api/sistemas')
@@ -72,7 +72,7 @@ const AberturaChamados = () => {
   };
 
   return (
-    <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px', border: '1px solid #ddd', borderRadius: '8px' }}>
+    <div>
       <h2>Abertura de Chamado</h2>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
