@@ -11,7 +11,7 @@ const triagemRoutes = require('./routes/Controlls/TriagemController');
 const authRoutes = require('./routes/Routes/auth.js')
 const ChamadosRoutes = require('./routes/Controlls/ChamadosController.js');
 const buscaChamados = require('./routes/Controlls/buscaChamadosAbertos.js')
-
+const criasistema = require("./routes/Routes/sitemas.js")
 app.use(express.json());
 
 /* app.get('/', (req, res) => {
@@ -29,7 +29,7 @@ app.use('/Handlesespecialista', especialistaRoutes);
 app.use('/Handlestriagem', triagemRoutes);
 app.use('/api', ChamadosRoutes);
 app.use('/Busca', buscaChamados);
-
+app.use("/criasistema",criasistema);
 
 app.get('/test-connection', async (req, res) => {
     try {
