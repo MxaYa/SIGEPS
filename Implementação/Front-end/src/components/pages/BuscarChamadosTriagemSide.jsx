@@ -7,19 +7,19 @@ const BuscarChamado = () => {
   const [erro, setErro] = useState('');
   const [novoStatus, setNovoStatus] = useState('');
   const [statusOptions, setStatusOptions] = useState([]);
+  const [especialistas, setEspecialistas] = useState([]);
+  const [especialistaSelecionado, setEspecialistaSelecionado] = useState('');
 
-  // Função para buscar os status disponíveis
   const fetchStatusOptions = async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/status-chamado');
-      setStatusOptions(response.data); // Supondo que o backend retorna um array de status
+      setStatusOptions(response.data);
     } catch (error) {
       console.error('Erro ao buscar status:', error);
       setErro('Erro ao carregar os status.');
     }
   };
 
-  // Buscar os status ao carregar o componente
   useEffect(() => {
     fetchStatusOptions();
   }, []);
@@ -60,6 +60,45 @@ const BuscarChamado = () => {
     }
   };
 
+  const fetchEspecialistas = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/Handlesespecialista/buscaEspecialista');
+      setEspecialistas(response.data);
+    } catch (error) {
+      console.error('Erro ao buscar Especialista:', error);
+      setErro('Erro ao carregar os Especialistas.');
+    }
+  };
+
+  useEffect(() => {
+    fetchEspecialistas();
+  }, []);
+
+  const handleCriaAssociacao = async (e) => {
+    e.preventDefault();
+
+    if (!especialistaSelecionado || !idChamado) {
+      alert('Por favor, selecione um especialista e um chamado válido.');
+      return;
+    }
+
+    try {
+      await axios.post('http://localhost:5000/Handlesespecialista/criaAssociacaoEspecialistaChamado/:codigoEspecialista/:numeroChamado', {
+        codigoEspecialista: especialistaSelecionado,
+        numeroChamado: idChamado,
+      });
+      alert('Associação criada com sucesso!');
+    } catch (error) {
+      if (error.response) {
+        console.error('Erro no envio:', error.response.data);
+        alert('Erro ao realizar a associação: ' + error.response.data.error);
+      } else {
+        console.error('Erro no envio:', error);
+        alert('Ocorreu um erro ao enviar os dados da associação.');
+      }
+    }
+  };
+
   return (
     <div className="buscar-chamado-container">
       <h2>Buscar Chamado</h2>
@@ -84,7 +123,7 @@ const BuscarChamado = () => {
           <p><strong>Status Atual:</strong> {chamado.codigoStatus_Chamado}</p>
 
           <div className="field-group">
-            <label>Alterar Status de Triagem</label>
+            <h3>Alterar Status de Triagem</h3>
             <select
               value={novoStatus}
               onChange={(e) => setNovoStatus(e.target.value)}
@@ -98,7 +137,23 @@ const BuscarChamado = () => {
             </select>
           </div>
 
+          <div className="field-group">
+            <h3>Especialista</h3>
+            <select
+              value={especialistaSelecionado}
+              onChange={(e) => setEspecialistaSelecionado(e.target.value)}
+            >
+              <option value="">Selecione um Especialista</option>
+              {especialistas.map(({ codigoEspecialista, nomeEspecialista }) => (
+                <option key={codigoEspecialista} value={codigoEspecialista}>
+                  {nomeEspecialista}
+                </option>
+              ))}
+            </select>
+          </div>
+
           <button onClick={handleAlterarStatus}>Alterar Status</button>
+          <button onClick={handleCriaAssociacao}>Associar Especialista</button>
         </div>
       )}
     </div>
