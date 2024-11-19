@@ -1,0 +1,111 @@
+/* ChamadosAbertos.css */
+.chamados-container {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  .loading-spinner {
+    font-size: 20px;
+    color: #ff6f61;
+  }
+  
+  .error-message {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .no-chamados-message {
+    font-style: italic;
+    color: #777;
+  }
+  
+  .chamados-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .chamados-table th,
+  .chamados-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .chamados-table th {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .chamados-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .delete-btn {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .delete-btn:hover {
+    background-color: #e04343;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .modal-actions {
+    margin-top: 20px;
+  }
+  
+  .confirm-btn,
+  .cancel-btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .confirm-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .cancel-btn {
+    background-color: #ccc;
+    color: white;
+  }
+  
+  .confirm-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #bdbdbd;
+  }
+  

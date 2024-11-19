@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Styles/ChamadosViewerClienteSide.css'
+import './Styles/ChamadosViewerClienteSide.css';
 
 const MeusChamados = () => {
   const [chamados, setChamados] = useState([]);
@@ -9,20 +9,20 @@ const MeusChamados = () => {
   const [codigoCliente, setCodigoCliente] = useState(null);
 
   useEffect(() => {
-    const storedCodigoCliente = localStorage.getItem('codigoCliente');
+    const storedCodigoCliente = localStorage.getItem('codigo');
     console.log('Código Cliente do LocalStorage:', storedCodigoCliente);  // Verifique o valor
-  
+
     setCodigoCliente(storedCodigoCliente);
-  
+
     const fetchChamados = async () => {
       try {
         const response = await axios.get('http://localhost:5000/api/chamados');
 
         console.log('Chamados recebidos do backend:', response.data);
-        
+
         const filteredChamados = response.data.filter(chamado => Number(chamado.codigoCliente) === Number(storedCodigoCliente));
         console.log('Chamados filtrados:', filteredChamados);
-  
+
         setChamados(filteredChamados);
         setLoading(false);
       } catch (error) {
@@ -30,10 +30,9 @@ const MeusChamados = () => {
         setLoading(false);
       }
     };
-  
+
     fetchChamados();
   }, []);
-  
 
   if (loading) {
     return <p>Carregando chamados...</p>;
@@ -44,9 +43,9 @@ const MeusChamados = () => {
   }
 
   return (
-    <div className="chamados-container" style={{ padding: '20px' }}>
+    <div className="chamados-container">
       <h2>Meus Chamados</h2>
-      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+      <table className="chamados-table">
         <thead>
           <tr>
             <th>Número Chamado</th>

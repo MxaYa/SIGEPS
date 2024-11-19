@@ -11,6 +11,16 @@ Currently, two official plugins are available:
 
 
 
+front end instalaçoes: 
+npm install @auth0/auth0-react@^2.2.4
+npm install axios@^1.7.5
+npm install create-react-app@^1.2.1
+npm install dotenv@^16.4.5
+npm install express@^4.19.2
+npm install mysql@^2.18.1
+npm install react@^18.0.0
+npm install react-dom@^18.0.0
+
 
 
 

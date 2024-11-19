@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './Styles/Chamadoaberto.css';
 
 const ChamadosAbertos = () => {
   const [chamados, setChamados] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [chamadoToDelete, setChamadoToDelete] = useState(null);
 
   useEffect(() => {
     const fetchChamadosAbertos = async () => {
@@ -22,31 +25,31 @@ const ChamadosAbertos = () => {
     fetchChamadosAbertos();
   }, []);
 
-  const excluirChamado = async (id) => {
-    if (window.confirm('Tem certeza que deseja excluir este chamado?')) {
-      try {
-        await axios.delete(`http://localhost:5000/api/chamados/${id}`);
-        setChamados((prevChamados) =>
-          prevChamados.filter((chamado) => chamado.numeroChamado !== id)
-        );
-        alert('Chamado excluído com sucesso!');
-      } catch (err) {
-        console.error('Erro ao excluir chamado:', err);
-        alert('Erro ao excluir o chamado.');
-      }
+  const excluirChamado = async () => {
+    try {
+      await axios.delete(`http://localhost:5000/api/chamados/${chamadoToDelete}`);
+      setChamados((prevChamados) =>
+        prevChamados.filter((chamado) => chamado.numeroChamado !== chamadoToDelete)
+      );
+      setShowModal(false);
+      alert('Chamado excluído com sucesso!');
+    } catch (err) {
+      console.error('Erro ao excluir chamado:', err);
+      alert('Erro ao excluir o chamado.');
+      setShowModal(false);
     }
   };
 
-  if (loading) return <div>Carregando...</div>;
-  if (error) return <div>{error}</div>;
+  if (loading) return <div className="loading-spinner">Carregando...</div>;
+  if (error) return <div className="error-message">{error}</div>;
 
   return (
-    <div>
+    <div className="chamados-container">
       <h1>Chamados Abertos</h1>
       {chamados.length === 0 ? (
-        <p>Não há chamados abertos no momento.</p>
+        <p className="no-chamados-message">Não há chamados abertos no momento.</p>
       ) : (
-        <table>
+        <table className="chamados-table">
           <thead>
             <tr>
               <th>ID</th>
@@ -71,15 +74,11 @@ const ChamadosAbertos = () => {
                 </td>
                 <td>
                   <button
-                    onClick={() => excluirChamado(chamado.numeroChamado)}
-                    style={{
-                      backgroundColor: '#ff4d4f',
-                      color: 'white',
-                      border: 'none',
-                      padding: '5px 10px',
-                      cursor: 'pointer',
-                      borderRadius: '5px',
+                    onClick={() => {
+                      setChamadoToDelete(chamado.numeroChamado);
+                      setShowModal(true);
                     }}
+                    className="delete-btn"
                   >
                     Excluir
                   </button>
@@ -88,6 +87,23 @@ const ChamadosAbertos = () => {
             ))}
           </tbody>
         </table>
+      )}
+
+      {/* Modal de confirmação */}
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h3>Tem certeza que deseja excluir este chamado?</h3>
+            <div className="modal-actions">
+              <button onClick={excluirChamado} className="confirm-btn">
+                Confirmar
+              </button>
+              <button onClick={() => setShowModal(false)} className="cancel-btn">
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

@@ -43,7 +43,7 @@ const AberturaChamados = () => {
         setLoadingTiposManutencao(false);
       });
 
-    const codigoCliente = localStorage.getItem('codigoCliente');
+    const codigoCliente = localStorage.getItem('codigo');
     if (codigoCliente) {
       setFormData(prevData => ({
         ...prevData,

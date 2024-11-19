@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './Styles/TelaEspecialista.css';
 
 const TelaEspecialista = ({ idEspecialista }) => {
   const [chamados, setChamados] = useState([]);
@@ -7,7 +8,6 @@ const TelaEspecialista = ({ idEspecialista }) => {
   const [erro, setErro] = useState('');
   const [novoStatus, setNovoStatus] = useState('');
 
-  // Função para buscar os status
   const fetchStatusOptions = async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/status-chamado');
@@ -47,7 +47,7 @@ const TelaEspecialista = ({ idEspecialista }) => {
     }
 
     try {
-      console.log('Alterando status para:', novoStatus, 'no chamado:', numeroChamado)
+      console.log('Alterando status para:', novoStatus, 'no chamado:', numeroChamado);
       const response = await axios.put(`http://localhost:5000/api/chamados/${numeroChamado}/status`, {
         codigoStatus_Chamado: novoStatus,
       });
@@ -66,10 +66,10 @@ const TelaEspecialista = ({ idEspecialista }) => {
   };
 
   return (
-    <div>
+    <div className="tela-especialista">
       <h2>Chamados do Especialista</h2>
       {erro && <p className="error-message">{erro}</p>}
-      <table>
+      <table className="chamados-table">
         <thead>
           <tr>
             <th>Número do Chamado</th>
@@ -77,7 +77,6 @@ const TelaEspecialista = ({ idEspecialista }) => {
             <th>Descrição</th>
             <th>Status</th>
             <th>Data de Abertura</th>
-            <th>Data de Fechamento</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -89,11 +88,11 @@ const TelaEspecialista = ({ idEspecialista }) => {
               <td>{chamado.descricaoChamado}</td>
               <td>{chamado.codigoStatus_Chamado}</td>
               <td>{chamado.dataAbertura}</td>
-              <td>{chamado.dataFechamento}</td>
               <td>
                 <select
                   value={chamado.codigoStatus_Chamado || ''}
                   onChange={(e) => handleAlterarStatus(chamado.numeroChamado, e.target.value)}
+                  className="status-select"
                 >
                   {statusOptions.map((status) => (
                     <option key={status.codigoStatus_Chamado} value={status.codigoStatus_Chamado}>

@@ -63,7 +63,6 @@ const Login = () => {
             onChange={(e) => setSenha(e.target.value)}
             required
           />
-          <a href="#">Esqueceu sua senha?</a>
           <button type="submit">Login</button>
         </form>
       </div>

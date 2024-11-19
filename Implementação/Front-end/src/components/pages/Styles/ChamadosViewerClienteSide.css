@@ -4,6 +4,9 @@
     border-radius: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .chamados-container h2 {
@@ -19,7 +22,8 @@
     margin-top: 10px;
 }
 
-.chamados-table th, .chamados-table td {
+.chamados-table th,
+.chamados-table td {
     padding: 12px 20px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -28,6 +32,7 @@
 .chamados-table th {
     background-color: #512da8;
     color: white;
+    font-weight: bold;
 }
 
 .chamados-table tr:nth-child(even) {
@@ -38,12 +43,26 @@
     background-color: #f1f1f1;
 }
 
-
 .chamados-table td {
-    padding-bottom: 10px; 
+    padding-bottom: 10px;
 }
 
 .chamados-table td:first-child,
 .chamados-table td:nth-child(2) {
     padding-right: 20px;
+}
+
+.chamados-table td {
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .chamados-container {
+        padding: 15px;
+    }
+    
+    .chamados-table th,
+    .chamados-table td {
+        padding: 10px;
+    }
 }
